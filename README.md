@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+# Found Home
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React app that alows users to search for homes that are for sale or rent. Users can contact the 
+property owners to get more information and can log in to post their own property for sale or rent.
+
+## Technology Utilized
+### React front end
+Utilized Create React App
+### Google Firebase
+Google Firebase Authentication handles authentication via email/password and Google Oauth
+Firestore Database stores user and listing details.
+### Leaflet
+Leaflet allows for the addition of a map including a dropped pin based on the listing's lat. and lng.
+### Toastify
+Toastify is a very handy way to display user-friendly messages as popups with very easy implementation.
+Here it is used to display error and success messages related to login and changing data.
+### Swiper
+Swiper delivers image sliders as divs with background images. They automatically slide through images
+of current listings or the images of a selected listing. The implementation is simple and because it
+creates the div with the image as the background, you can add content into the div container.
+### UUID
+To give image files unique names we utilized UUID. Ex.: images with identical names make it into the
+correct place.
 
 ## Available Scripts
 
