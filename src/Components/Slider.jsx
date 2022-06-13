@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-unresolved */
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -44,7 +47,7 @@ function Slider() {
       const listingsRef = collection(db, 'listings');
       const q = query(listingsRef, orderBy('timestamp', 'desc', limit(5)));
       const querySnap = await getDocs(q);
-      let listings = [];
+      const listings = [];
       querySnap.forEach((doc) => listings.push({
         id: doc.id,
         data: doc.data()

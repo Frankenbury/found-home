@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-shadow */
@@ -33,7 +34,7 @@ function Profile() {
   });
 
   // Destructure name and email from the form data
-  const { name, email } = formData;
+  const { name } = formData;
 
   const navigate = useNavigate();
 

@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { useEffect, useState, useRef } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
@@ -21,12 +22,12 @@ export const useAuthStatus = () => {
         }
         // We're no longer awaiting a response, Check is false
         setStatusCheck(false);
-      })
+      });
     }
     return () => {
       isMounted.current = false;
-    }   
+    };
   }, [isMounted]);
 
-  return {loggedIn, statusCheck};
+  return { loggedIn, statusCheck };
 };
