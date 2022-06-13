@@ -1,3 +1,8 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,21 +16,21 @@ function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
+    password: ''
   });
   const { email, password } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }
-  ))
-}
+    ));
+  };
 
   const toggleVisible = (e) => {
     setShowPassword((prevState) => !prevState);
-  }
+  };
 
   const navigate = useNavigate();
 
@@ -35,15 +40,15 @@ function SignIn() {
     try {
       const auth = getAuth();
 
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    // Check for user and navigate to home or throw error
-    if (userCredential.user) {
-      navigate('/');
-    }
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // Check for user and navigate to home or throw error
+      if (userCredential.user) {
+        navigate('/');
+      }
     } catch (error) {
       toast.error('Incorrect User Credentials');
     }
@@ -51,59 +56,63 @@ function SignIn() {
 
   return (
     <>
-      <div className="pageContainer">
+      <div className='pageContainer'>
         <header>
-          <p className="pageHeader">
+          <p className='pageHeader'>
             Welcome Back!
           </p>
         </header>
         <form onSubmit={onSubmit}>
           <input
-            type="email"
-            className="emailInput"
-            placeholder="email"
-            id="email"
-            name="email"
+            type='email'
+            className='emailInput'
+            placeholder='email'
+            id='email'
+            name='email'
             value={email}
             onChange={onChange}
           />
-          <div className="passwordInputDiv">
-            <input type={
-              showPassword ? "text" : "password"}
-              placeholder="password"
-              id="password"
-              className="passwordInput"
-              name="password"
+          <div className='passwordInputDiv'>
+            <input
+              type={
+              showPassword ? 'text' : 'password'
+}
+              placeholder='password'
+              id='password'
+              className='passwordInput'
+              name='password'
               value={password}
               onChange={onChange}
             />
             <img
               src={visibilityIcon}
-              alt="show password"
-              className="showPassword"
+              alt='show password'
+              className='showPassword'
               onClick={toggleVisible}
             />
           </div>
-          <Link to="/forgot-password"
-            className="forgotPasswordLink">
-              Forgot Password
-            </Link>
-            <div className="signInBar">
-              <p className="signInText">
-                Sign In
-              </p>
-              <button className="signInButton">
-                <ArrowRightIcon fill="ffffff" width="34px" height="34px" />
-              </button>
-            </div>
+          <Link
+            to='/forgot-password'
+            className='forgotPasswordLink'
+          >
+            Forgot Password
+          </Link>
+          <div className='signInBar'>
+            <p className='signInText'>
+              Sign In
+            </p>
+            <button className='signInButton'>
+              <ArrowRightIcon fill='ffffff' width='34px' height='34px' />
+            </button>
+          </div>
         </form>
         <OAuth />
-        <Link to="/register" className="registerLink">
+        <Link to='/register' className='registerLink'>
           First timer? Register Here.
         </Link>
       </div>
     </>
-  )
+  );
 }
 
 export default SignIn;
