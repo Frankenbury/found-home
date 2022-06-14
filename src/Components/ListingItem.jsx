@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg';
+import moneyFormat from '../utilities/moneyFormat';
 import bedIcon from '../assets/svg/bedIcon.svg';
 import bathtubIcon from '../assets/svg/bathtubIcon.svg';
 
@@ -23,14 +24,9 @@ function ListingItem({
           <p className='categoryListingLocation'>{listing.location}</p>
           <p className='categoryListingName'>{listing.name}</p>
           <p className='categoryListingPrice'>
-            $
             {listing.offer
-              ? listing.discountedPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-              : listing.regularPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              ? moneyFormat(listing.discountedPrice)
+              : moneyFormat(listing.regularPrice)}
             {listing.type === 'rent' && '/ Month'}
           </p>
           <div className='categoryListingInfoDiv'>
