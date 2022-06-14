@@ -33,6 +33,7 @@ import { getAuth } from 'firebase/auth';
 // Toast for notification popups
 import { toast } from 'react-toastify';
 import { db } from '../firebase.config';
+import moneyFormat from '../utilities/moneyFormat';
 import Spinner from '../Components/Spinner';
 import shareIcon from '../assets/svg/shareIcon.svg';
 
@@ -114,15 +115,12 @@ function Listing() {
       <div className='listingDetails'>
         <p className='listingName'>
           {listing.name}
-          - $
+          {' '}
+          -
+          {' '}
           {listing.offer
-            ? listing.discountedPrice
-            /* Regex to add commas in the price */
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-            : listing.regularPrice
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            ? moneyFormat(listing.discountedPrice)
+            : moneyFormat(listing.regularPrice)}
         </p>
         <p className='listingLocation'>{listing.location}</p>
         <p className='listingType'>
@@ -132,8 +130,7 @@ function Listing() {
         </p>
         {listing.offer && (
           <p className='discountPrice'>
-            $
-            {listing.regularPrice - listing.discountedPrice}
+            {moneyFormat(listing.regularPrice - listing.discountedPrice)}
             {' '}
             discount
           </p>
@@ -150,7 +147,7 @@ function Listing() {
               ? `${listing.bathrooms} Bathrooms`
               : '1 Bathroom'}
           </li>
-          <li>{listing.parking && 'Private Parking'}</li>
+          <li>{listing.parking && 'Garage'}</li>
           <li>{listing.furnished && 'Furnished'}</li>
         </ul>
 
