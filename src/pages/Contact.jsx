@@ -34,28 +34,24 @@ function Contact() {
   };
 
   return (
-    <div className='pageContainer'>
+    <div className="pageContainer">
       <header>
-        <p className='pageHeader'>Contact Property Owner</p>
+        <p className="pageHeader">Contact Property Owner</p>
       </header>
       {owner !== null && (
         <main>
-          <div className='contactLandlord'>
-            <p className='landlordName'>
-              Contact
-              {' '}
-              {owner?.name}
-            </p>
+          <div className="contactLandlord">
+            <p className="landlordName">Contact {owner?.name}</p>
           </div>
-          <form className='messageForm'>
-            <div className='messageDiv'>
-              <label htmlFor='message' className='messageLabel'>
+          <form className="messageForm">
+            <div className="messageDiv">
+              <label htmlFor="message" className="messageLabel">
                 Message
               </label>
               <textarea
-                name='message'
-                id='message'
-                className='textarea'
+                name="message"
+                id="message"
+                className="textarea"
                 value={message}
                 onChange={onChange}
               />
@@ -65,7 +61,7 @@ function Contact() {
                 'listingName'
               )}&body=${message}`}
             >
-              <button type='button' className='primaryButton'>
+              <button type="button" className="primaryButton">
                 Send Message
               </button>
             </a>

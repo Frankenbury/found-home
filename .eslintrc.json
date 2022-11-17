@@ -14,10 +14,10 @@
   },
   "plugins": ["react"],
   "rules": {
+    "comma-dangle": ["error", { "functions": "never" }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "object-curly-newline": ["error", { "consistent": true }],
-    "comma-dangle": ["error", { "functions": "never" }],
     "no-nested-ternary": "off"
   }
 }

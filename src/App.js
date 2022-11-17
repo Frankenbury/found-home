@@ -20,20 +20,23 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Explore />} />
-          <Route path='/deals' element={<Deals />} />
-          <Route path='/category/:categoryName' element={<Category />} />
+          <Route path="/" element={<Explore />} />
+          <Route path="/deals" element={<Deals />} />
+          <Route path="/category/:categoryName" element={<Category />} />
           {/* private route for the PrivateRoute component requiring logged in user */}
-          <Route path='/profile' element={<PrivateRoute />}>
-            <Route path='/profile' element={<Profile />} />
+          <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
           </Route>
-          <Route path='/sign-in' element={<SignIn />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/forgot-password' element={<ForgotPassword />} />
-          <Route path='/add-listing' element={<AddListing />} />
-          <Route path='/category/:categoryName/:listingId' element={<Listing />} />
-          <Route path='/contact/:userRef' element={<Contact />} />
-          <Route path='/edit-listing/:listingId' element={<EditListing />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/add-listing" element={<AddListing />} />
+          <Route
+            path="/category/:categoryName/:listingId"
+            element={<Listing />}
+          />
+          <Route path="/contact/:userRef" element={<Contact />} />
+          <Route path="/edit-listing/:listingId" element={<EditListing />} />
         </Routes>
         <Navbar />
       </Router>

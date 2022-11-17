@@ -5,7 +5,11 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile
+} from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config';
@@ -28,8 +32,7 @@ function Register() {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value
-    }
-    ));
+    }));
   };
 
   const onSubmit = async (e) => {
@@ -37,8 +40,11 @@ function Register() {
     try {
       const auth = getAuth();
 
-      const userCredential = await
-      createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
       const { user } = userCredential;
 
@@ -67,67 +73,58 @@ function Register() {
 
   return (
     <>
-      <div className='pageContainer'>
+      <div className="pageContainer">
         <header>
-          <p className='pageHeader'>
-            Welcome!
-          </p>
+          <p className="pageHeader">Welcome!</p>
         </header>
         <input
-          type='email'
-          className='nameInput'
-          placeholder='name'
-          id='name'
-          name='name'
+          type="email"
+          className="nameInput"
+          placeholder="name"
+          id="name"
+          name="name"
           value={name}
           onChange={onChange}
         />
         <form onSubmit={onSubmit}>
           <input
-            type='email'
-            className='emailInput'
-            placeholder='email'
-            id='email'
-            name='email'
+            type="email"
+            className="emailInput"
+            placeholder="email"
+            id="email"
+            name="email"
             value={email}
             onChange={onChange}
           />
-          <div className='passwordInputDiv'>
+          <div className="passwordInputDiv">
             <input
-              type={
-              showPassword ? 'text' : 'password'
-            }
-              placeholder='password'
-              id='password'
-              className='passwordInput'
-              name='password'
+              type={showPassword ? 'text' : 'password'}
+              placeholder="password"
+              id="password"
+              className="passwordInput"
+              name="password"
               value={password}
               onChange={onChange}
             />
             <img
               src={visibilityIcon}
-              alt='show password'
-              className='showPassword'
+              alt="show password"
+              className="showPassword"
               onClick={toggleVisible}
             />
           </div>
-          <Link
-            to='/forgot-password'
-            className='forgotPasswordLink'
-          >
+          <Link to="/forgot-password" className="forgotPasswordLink">
             Forgot Password
           </Link>
-          <div className='signUpBar'>
-            <p className='signUpText'>
-              Register
-            </p>
-            <button className='signUpButton'>
-              <ArrowRightIcon fill='ffffff' width='34px' height='34px' />
+          <div className="signUpBar">
+            <p className="signUpText">Register</p>
+            <button className="signUpButton">
+              <ArrowRightIcon fill="ffffff" width="34px" height="34px" />
             </button>
           </div>
         </form>
         <OAuth />
-        <Link to='/sign-in' className='registerLink'>
+        <Link to="/sign-in" className="registerLink">
           Already registered? Sign in here.
         </Link>
       </div>

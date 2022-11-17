@@ -5,27 +5,27 @@ import Slider from '../Components/Slider';
 
 function Explore() {
   return (
-    <div className='explore'>
-      <h1 className='pageHeader'>Explore</h1>
+    <div className="explore">
+      <h1 className="pageHeader">Explore</h1>
       <main>
         <Slider />
-        <p className='exploreCategoryHeading'>Categories</p>
-        <div className='exploreCategories'>
-          <Link to='/category/rent'>
+        <p className="exploreCategoryHeading">Categories</p>
+        <div className="exploreCategories">
+          <Link to="/category/rent">
             <img
               src={rentCategoryImage}
-              alt='rent'
-              className='exploreCategoryImg'
+              alt="rent"
+              className="exploreCategoryImg"
             />
-            <p className='exploreCategoryName'>Homes For Rent</p>
+            <p className="exploreCategoryName">Homes For Rent</p>
           </Link>
-          <Link to='/category/sale'>
+          <Link to="/category/sale">
             <img
               src={sellCategoryImage}
-              alt='sell'
-              className='exploreCategoryImg'
+              alt="sell"
+              className="exploreCategoryImg"
             />
-            <p className='exploreCategoryName'>Homes For Sale</p>
+            <p className="exploreCategoryName">Homes For Sale</p>
           </Link>
         </div>
       </main>

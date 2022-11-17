@@ -17,56 +17,53 @@ function Navbar() {
   };
 
   return (
-    <footer className='navbar'>
-      <nav className='navbarNav'>
-        <ul className='navbarListItems'>
-          <li className='navbarListItem' onClick={() => navigate('/')}>
+    <footer className="navbar">
+      <nav className="navbarNav">
+        <ul className="navbarListItems">
+          <li className="navbarListItem" onClick={() => navigate('/')}>
             <ExploreIcon
-              fill={pathMatchRoute('/') ? '#2c2c2c'
-                : '#8f8f8f'}
-              width='36px'
-              height='36px'
+              fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'}
+              width="36px"
+              height="36px"
             />
             <p
               className={
                 pathMatchRoute('/')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
-            }
+              }
             >
               Explore
             </p>
           </li>
-          <li className='navbarListItem' onClick={() => navigate('/deals')}>
+          <li className="navbarListItem" onClick={() => navigate('/deals')}>
             <DealIcon
-              fill={pathMatchRoute('/deals') ? '#2c2c2c'
-                : '#8f8f8f'}
-              width='36px'
-              height='36px'
+              fill={pathMatchRoute('/deals') ? '#2c2c2c' : '#8f8f8f'}
+              width="36px"
+              height="36px"
             />
             <p
               className={
                 pathMatchRoute('/deals')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
-            }
+              }
             >
               Deals
             </p>
           </li>
-          <li className='navbarListItem' onClick={() => navigate('/profile')}>
+          <li className="navbarListItem" onClick={() => navigate('/profile')}>
             <PersonOutlineIcon
-              fill={pathMatchRoute('/profile') ? '#2c2c2c'
-                : '#8f8f8f'}
-              width='36px'
-              height='36px'
+              fill={pathMatchRoute('/profile') ? '#2c2c2c' : '#8f8f8f'}
+              width="36px"
+              height="36px"
             />
             <p
               className={
                 pathMatchRoute('/profile')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
-            }
+              }
             >
               Profile
             </p>

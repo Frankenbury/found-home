@@ -110,16 +110,16 @@ function Deals() {
   };
 
   return (
-    <div className='category'>
+    <div className="category">
       <header>
-        <p className='pageHeader'>Deals</p>
+        <p className="pageHeader">Deals</p>
       </header>
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <ul className='categoryListings'>
+            <ul className="categoryListings">
               {listings.map((listing) => (
                 <ListingItem
                   listing={listing.data}
@@ -132,11 +132,9 @@ function Deals() {
           <br />
           <br />
           {noMoreListings ? (
-            <p>
-              No More Listings
-            </p>
+            <p>No More Listings</p>
           ) : (
-            <p className='loadMore' onClick={onFetchMoreListings}>
+            <p className="loadMore" onClick={onFetchMoreListings}>
               Load More
             </p>
           )}

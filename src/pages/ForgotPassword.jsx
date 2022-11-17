@@ -23,27 +23,27 @@ function ForgotPassword() {
   };
 
   return (
-    <div className='pageContainer'>
+    <div className="pageContainer">
       <header>
-        <p className='hageHeader'>Forgot Password</p>
+        <p className="hageHeader">Forgot Password</p>
       </header>
       <main>
         <form onSubmit={onSubmit}>
           <input
-            type='email'
-            className='emailInput'
-            placeholder='Email'
-            id='email'
+            type="email"
+            className="emailInput"
+            placeholder="Email"
+            id="email"
             value={email}
             onChange={onChange}
           />
-          <Link className='forgotPasswordLink' to='/sign-in'>
+          <Link className="forgotPasswordLink" to="/sign-in">
             Sign In
           </Link>
-          <div className='signInBar'>
-            <div className='signInText'>Send Reset Link</div>
-            <button type='button' className='signInButton'>
-              <ArrowRightIcon fill='white' width='34px' height='34px' />
+          <div className="signInBar">
+            <div className="signInText">Send Reset Link</div>
+            <button type="button" className="signInButton">
+              <ArrowRightIcon fill="white" width="34px" height="34px" />
             </button>
           </div>
         </form>

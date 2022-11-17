@@ -12,7 +12,6 @@ function PrivateRoute() {
 
   /* If they are logged in, render Outlet, which is the
   profile route in main App else send to sign-in page */
-  return loggedIn ? <Outlet />
-    : <Navigate to='/sign-in' />;
+  return loggedIn ? <Outlet /> : <Navigate to="/sign-in" />;
 }
 export default PrivateRoute;

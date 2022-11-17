@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -53,10 +54,14 @@ function Profile() {
 
       const listingsArray = [];
 
-      querySnap.forEach((doc) => listingsArray.push({
-        id: doc.id,
-        data: doc.data()
-      }));
+      querySnap.forEach(
+        (doc) =>
+          listingsArray.push({
+            id: doc.id,
+            data: doc.data()
+          })
+        // eslint-disable-next-line function-paren-newline
+      );
       setListings(listingsArray);
       setLoading(false);
     };
@@ -75,7 +80,9 @@ function Profile() {
       // Delete the document from Firebase
       await deleteDoc(doc(db, 'listings', listingId));
       // Delete from our list and display
-      const updatedListings = listings.filter((listing) => listing.id !== listingId);
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingId
+      );
       setListings(updatedListings);
       toast.success('Listing Deleted!');
     }
@@ -110,18 +117,18 @@ function Profile() {
   };
 
   return (
-    <div className='profile'>
-      <header className='profileHeader'>
-        <p className='pageHeader'>My Profile</p>
-        <button type='button' className='logOut' onClick={onLogout}>
+    <div className="profile">
+      <header className="profileHeader">
+        <p className="pageHeader">My Profile</p>
+        <button type="button" className="logOut" onClick={onLogout}>
           Logout
         </button>
       </header>
       <main>
-        <div className='profileDetailsHeader'>
-          <p className='profileDetailsText'>Personal Details</p>
+        <div className="profileDetailsHeader">
+          <p className="profileDetailsText">Personal Details</p>
           <p
-            className='changePersonalDetails'
+            className="changePersonalDetails"
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prevState) => !prevState);
@@ -130,12 +137,12 @@ function Profile() {
             {changeDetails ? 'done' : 'change'}
           </p>
         </div>
-        <div className='profileCard'>
+        <div className="profileCard">
           <form>
             {/* text input that is only visible if changeDetails is true */}
             <input
-              type='text'
-              id='name'
+              type="text"
+              id="name"
               value={name}
               onChange={onChange}
               className={!changeDetails ? 'profileName' : 'profileNameActive'}
@@ -143,15 +150,15 @@ function Profile() {
             />
           </form>
         </div>
-        <Link to='/add-listing' className='createListing'>
-          <img src={homeIcon} alt='home' />
+        <Link to="/add-listing" className="createListing">
+          <img src={homeIcon} alt="home" />
           <p>List your home for sale or rent</p>
-          <img src={arrowRight} alt='arrow' />
+          <img src={arrowRight} alt="arrow" />
         </Link>
         {!loading && listings?.length > 0 && (
           <>
-            <p className='listingText'>Your Listings</p>
-            <ul className='listingsList'>
+            <p className="listingText">Your Listings</p>
+            <ul className="listingsList">
               {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}

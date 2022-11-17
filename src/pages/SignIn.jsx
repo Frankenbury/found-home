@@ -24,8 +24,7 @@ function SignIn() {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value
-    }
-    ));
+    }));
   };
 
   const toggleVisible = (e) => {
@@ -56,58 +55,49 @@ function SignIn() {
 
   return (
     <>
-      <div className='pageContainer'>
+      <div className="pageContainer">
         <header>
-          <p className='pageHeader'>
-            Welcome Back!
-          </p>
+          <p className="pageHeader">Welcome Back!</p>
         </header>
         <form onSubmit={onSubmit}>
           <input
-            type='email'
-            className='emailInput'
-            placeholder='email'
-            id='email'
-            name='email'
+            type="email"
+            className="emailInput"
+            placeholder="email"
+            id="email"
+            name="email"
             value={email}
             onChange={onChange}
           />
-          <div className='passwordInputDiv'>
+          <div className="passwordInputDiv">
             <input
-              type={
-              showPassword ? 'text' : 'password'
-}
-              placeholder='password'
-              id='password'
-              className='passwordInput'
-              name='password'
+              type={showPassword ? 'text' : 'password'}
+              placeholder="password"
+              id="password"
+              className="passwordInput"
+              name="password"
               value={password}
               onChange={onChange}
             />
             <img
               src={visibilityIcon}
-              alt='show password'
-              className='showPassword'
+              alt="show password"
+              className="showPassword"
               onClick={toggleVisible}
             />
           </div>
-          <Link
-            to='/forgot-password'
-            className='forgotPasswordLink'
-          >
+          <Link to="/forgot-password" className="forgotPasswordLink">
             Forgot Password
           </Link>
-          <div className='signInBar'>
-            <p className='signInText'>
-              Sign In
-            </p>
-            <button className='signInButton'>
-              <ArrowRightIcon fill='ffffff' width='34px' height='34px' />
+          <div className="signInBar">
+            <p className="signInText">Sign In</p>
+            <button className="signInButton">
+              <ArrowRightIcon fill="ffffff" width="34px" height="34px" />
             </button>
           </div>
         </form>
         <OAuth />
-        <Link to='/register' className='registerLink'>
+        <Link to="/register" className="registerLink">
           First timer? Register Here.
         </Link>
       </div>

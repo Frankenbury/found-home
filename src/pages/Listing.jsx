@@ -1,26 +1,14 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 // Import map components for leaflet module
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer
-} from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 // Import Swiper components
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y
-} from 'swiper';
-import {
-  Swiper,
-  SwiperSlide
-} from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -87,7 +75,7 @@ function Listing() {
             are actually laid in as the background. We can
             create a closing tag and add elements overlaid on the pictures */}
             <div
-              className='swiperSlideDiv'
+              className="swiperSlideDiv"
               style={{
                 background: `url(${listing.imgUrls[index]}) center no-repeat`,
                 backgroundSize: 'cover'
@@ -98,7 +86,7 @@ function Listing() {
       </Swiper>
       {/* Share link copies the current page */}
       <div
-        className='shareIconDiv'
+        className="shareIconDiv"
         onClick={() => {
           navigator.clipboard.writeText(window.location.href);
           setShareLinkCopied(true);
@@ -107,36 +95,30 @@ function Listing() {
           }, 2000);
         }}
       >
-        <img src={shareIcon} alt='Share' />
+        <img src={shareIcon} alt="Share" />
       </div>
 
-      {shareLinkCopied && <p className='linkCopied'>Link Copied</p>}
+      {shareLinkCopied && <p className="linkCopied">Link Copied</p>}
 
-      <div className='listingDetails'>
-        <p className='listingName'>
-          {listing.name}
-          {' '}
-          -
-          {' '}
+      <div className="listingDetails">
+        <p className="listingName">
+          {listing.name} -{' '}
           {listing.offer
             ? moneyFormat(listing.discountedPrice)
             : moneyFormat(listing.regularPrice)}
         </p>
-        <p className='listingLocation'>{listing.location}</p>
-        <p className='listingType'>
-          For
-          {' '}
-          {listing.type === 'rent' ? 'Rent' : 'Sale'}
+        <p className="listingLocation">{listing.location}</p>
+        <p className="listingType">
+          For {listing.type === 'rent' ? 'Rent' : 'Sale'}
         </p>
         {listing.offer && (
-          <p className='discountPrice'>
-            {moneyFormat(listing.regularPrice - listing.discountedPrice)}
-            {' '}
+          <p className="discountPrice">
+            {moneyFormat(listing.regularPrice - listing.discountedPrice)}{' '}
             discount
           </p>
         )}
 
-        <ul className='listingDetailsList'>
+        <ul className="listingDetailsList">
           <li>
             {listing.bedrooms > 1
               ? `${listing.bedrooms} Bedrooms`
@@ -151,8 +133,8 @@ function Listing() {
           <li>{listing.furnished && 'Furnished'}</li>
         </ul>
 
-        <p className='listingLocationTitle'>Location</p>
-        <div className='leafletContainer'>
+        <p className="listingLocationTitle">Location</p>
+        <div className="leafletContainer">
           <MapContainer
             style={{ height: '100%', width: '100%' }}
             center={[listing.geolocation.lat, listing.geolocation.lng]}
@@ -162,9 +144,11 @@ function Listing() {
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">
               OpenStreetMap</a> contributors'
-              url='https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png'
+              url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
             />
-            <Marker position={[listing.geolocation.lat, listing.geolocation.lng]}>
+            <Marker
+              position={[listing.geolocation.lat, listing.geolocation.lng]}
+            >
               <Popup>{listing.location}</Popup>
             </Marker>
           </MapContainer>
@@ -174,7 +158,7 @@ function Listing() {
         {auth.currentUser?.uid !== listing.userRef && (
           <Link
             to={`/contact/${listing.userRef}?listingName=${listing.name}`}
-            className='primaryButton'
+            className="primaryButton"
           >
             Get more information
           </Link>

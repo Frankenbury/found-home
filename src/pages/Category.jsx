@@ -116,9 +116,9 @@ function Category() {
   };
 
   return (
-    <div className='category'>
+    <div className="category">
       <header>
-        <p className='pageHeader'>
+        <p className="pageHeader">
           {params.categoryName === 'rent' ? 'Homes for rent' : 'Homes for sale'}
         </p>
       </header>
@@ -127,7 +127,7 @@ function Category() {
       ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <ul className='categoryListings'>
+            <ul className="categoryListings">
               {listings.map((listing) => (
                 <ListingItem
                   listing={listing.data}
@@ -140,21 +140,15 @@ function Category() {
           <br />
           <br />
           {noMoreListings ? (
-            <p>
-              No More Listings
-            </p>
+            <p>No More Listings</p>
           ) : (
-            <p className='loadMore' onClick={onFetchMoreListings}>
+            <p className="loadMore" onClick={onFetchMoreListings}>
               Load More
             </p>
           )}
         </>
       ) : (
-        <p>
-          No listings for
-          {' '}
-          {params.categoryName}
-        </p>
+        <p>No listings for {params.categoryName}</p>
       )}
     </div>
   );
