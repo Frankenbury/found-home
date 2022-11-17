@@ -1,3 +1,6 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-shadow */
 /* eslint-disable import/no-unresolved */
@@ -34,10 +37,7 @@ function Slider() {
       const querySnap = await getDocs(q);
       const listings = [];
       querySnap.forEach((doc) =>
-        listings.push({
-          id: doc.id,
-          data: doc.data()
-        })
+        listings.push({ id: doc.id, data: doc.data() })
       );
       setListings(listings);
       setLoading(false);
